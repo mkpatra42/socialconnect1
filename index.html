@@ -3,52 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SocialConnect</title>
+    <title>Image Sharing</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Firebase SDK -->
-    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-auth-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.x.x/firebase-firestore-compat.js"></script>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">SocialConnect</div>
-        <div class="nav-links">
-            <button id="loginBtn" class="nav-btn">Login</button>
-            <button id="signupBtn" class="nav-btn">Sign Up</button>
-            <button id="logoutBtn" class="nav-btn hidden">Logout</button>
-        </div>
-    </nav>
+    <div class="container">
+        <h1>Image Sharing Site</h1>
+        <form id="image-upload-form" action="/upload" method="POST" enctype="multipart/form-data">
+            <label for="image">Choose an image to upload</label>
+            <input type="file" name="image" id="image" required>
+            <button type="submit">Upload Image</button>
+        </form>
 
-    <!-- Auth Forms -->
-    <div id="authForms" class="auth-container">
-        <div id="loginForm" class="auth-form">
-            <h2>Login</h2>
-            <input type="email" id="loginEmail" placeholder="Email">
-            <input type="password" id="loginPassword" placeholder="Password">
-            <button onclick="login()">Login</button>
-        </div>
-
-        <div id="signupForm" class="auth-form hidden">
-            <h2>Sign Up</h2>
-            <input type="text" id="signupName" placeholder="Full Name">
-            <input type="email" id="signupEmail" placeholder="Email">
-            <input type="password" id="signupPassword" placeholder="Password">
-            <button onclick="signup()">Sign Up</button>
+        <div class="gallery">
+            <!-- Dynamically filled with uploaded images -->
         </div>
     </div>
-
-    <!-- Main Content -->
-    <div id="mainContent" class="main-container hidden">
-        <div class="create-post">
-            <textarea id="postContent" placeholder="What's on your mind?"></textarea>
-            <button onclick="createPost()">Post</button>
-        </div>
-        <div id="newsFeed" class="news-feed">
-            <!-- Posts will be dynamically added here -->
-        </div>
-    </div>
-
-    <script src="app.js"></script>
 </body>
 </html>
